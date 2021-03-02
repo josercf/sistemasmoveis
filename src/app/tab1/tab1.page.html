@@ -7,11 +7,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Dados</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>  
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Concluídos: <ion-badge color="success">{{obterAtividadesConcluidas()}}</ion-badge>
+          </ion-col>
+          <ion-col>
+            Pendentes: <ion-badge color="warning">{{obterAtividadesPendentes()}}</ion-badge>
+          </ion-col>
+          <ion-col>
+            Total: <ion-badge color="medium">{{obterTotalAtividades()}}</ion-badge>
+          </ion-col>
+        </ion-row>
+      </ion-grid>    
+    </ion-item>
+    <ion-item *ngFor="let atividade of atividades">
+      <ion-label>{{atividade.Descricao}}</ion-label>
+      <ion-checkbox slot="start" [(ngModel)]="atividade.Pronto"></ion-checkbox>
+    </ion-item>
+  </ion-list>
 
-  <app-explore-container name="Dados aluno"></app-explore-container>
+
 </ion-content>
