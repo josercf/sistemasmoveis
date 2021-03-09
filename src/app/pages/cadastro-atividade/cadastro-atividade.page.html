@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cadastro-atividade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="floating">Desc. Atividade</ion-label>
+    <ion-input  [(ngModel)]="atividade.Descricao"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="cadastrarAtividade()">Salvar Atividade</ion-button>
+
+  {{atividade.Descricao}}
+</ion-content>

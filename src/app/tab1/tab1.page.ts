@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Atividade } from '../models/atividade';
+import { AtividadeService } from '../services/atividade-service';
 
 @Component({
   selector: 'app-tab1',
@@ -10,18 +11,20 @@ export class Tab1Page {
 
   atividades: Atividade[] = [];
 
-  constructor() {
-    let atividade1 = new Atividade();
-    atividade1.Id = 1;
-    atividade1.Descricao = "Estudar para a aula";
-    atividade1.Pronto = false;
-    this.atividades.push(atividade1);
+  constructor(private atividadeService: AtividadeService) {
+    this.atividades = this.atividadeService.listar();
 
-    let atividade2 = new Atividade();
-    atividade2.Id = 2;
-    atividade2.Descricao = "Fazer compras - mercado";
-    atividade2.Pronto = true;
-    this.atividades.push(atividade2);
+    // let atividade1 = new Atividade();
+    // atividade1.Id = 1;
+    // atividade1.Descricao = "Estudar para a aula";
+    // atividade1.Pronto = false;
+    // this.atividades.push(atividade1);
+
+    // let atividade2 = new Atividade();
+    // atividade2.Id = 2;
+    // atividade2.Descricao = "Fazer compras - mercado";
+    // atividade2.Pronto = true;
+    // this.atividades.push(atividade2);
   }
 
   obterTotalAtividades(){
