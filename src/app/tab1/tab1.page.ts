@@ -12,7 +12,9 @@ export class Tab1Page {
   atividades: Atividade[] = [];
 
   constructor(private atividadeService: AtividadeService) {
-    this.atividades = this.atividadeService.listar();
+    this.atividadeService.listar().subscribe( (data : Atividade[]) =>{
+      this.atividades = data;
+    });
 
     // let atividade1 = new Atividade();
     // atividade1.Id = 1;
